@@ -6,7 +6,7 @@
 </template>
 
 <style scoped lang="scss">
-  $color-bg: rgb(255, 0, 255);
+  $color-bg: #f2f2f2;
   h1{
     background-color: $color-bg;
   }

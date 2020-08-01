@@ -1,13 +1,21 @@
 <template>
-  <div>
-    <h1>hoge</h1>
-    <Nuxt />
-  </div>
+  <Nuxt />
 </template>
 
-<style scoped lang="scss">
-  $color-bg: #f2f2f2;
-  h1{
-    background-color: $color-bg;
+<script>
+export default {
+  data(){
+    return {
+      title: "hoge"
+    }
+  },
+  head(){
+    return {
+      title: this.title,
+    }
   }
+}
+</script>
+
+<style lang="scss" scoped>
 </style>

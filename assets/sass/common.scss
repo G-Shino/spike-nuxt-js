@@ -1,8 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=M+PLUS+Rounded+1c:wght@300&display=swap');
+
+@mixin fontsize($size: 24){
+  font-size: $size + px;
+  font-size: ($size / 10) * 1rem;
+}
+
 html{
   font-size: 62.5%;
 }
 
 body{
   background-color: $color-bg;
-  font-size: 1.4rem;
+  font-family: 'Krona One', 'M PLUS Rounded 1c', "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif; 
+  @include fontsize(16);
+}
+
+h1{
+  @include fontsize(40);
+}
+
+h2{
+  @include fontsize(32);
+}
+
+h3{
+  @include fontsize(28);
+}
+
+p {
+  @include fontsize(16);
 }

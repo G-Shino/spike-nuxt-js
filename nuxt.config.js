@@ -1,3 +1,6 @@
-export default {css:[
-  {src: "@/assets/sass/app.scss", lang: "scss"}
-]}
+export default {
+  css:[
+    "@/assets/style/reset.css",
+    "@/assets/sass/app.scss"
+  ]
+}

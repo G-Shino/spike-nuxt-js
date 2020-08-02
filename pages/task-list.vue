@@ -105,6 +105,9 @@ export default {
         line-height: 1.5;
         border-bottom: 1px solid lighten(black, 50%);
       }
+      button{
+        vertical-align: top;
+      }
     }
     .task-content{
       display: flex;

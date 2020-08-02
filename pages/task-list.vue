@@ -1,6 +1,10 @@
 <template>
   <div class="wrapper">
     <h1>Task List!</h1>
+    <form class="add-form" v-on:submit.prevent="addTask($event)">
+      <input type="text" v-model="content" placeholder="edit me">
+      <button type="submit">追加</button>
+    </form>
     <table class="task-list-area">
       <thead>
         <tr>
@@ -13,12 +17,17 @@
       <tbody>
         <tr v-for="todo in todos" v-bind:key="todo.id">
           <th>{{ todo.id }}</th>
-          <td>{{ todo.content }}</td>
+          <td>
+            <div class="task-content">
+              {{ todo.content }}
+              <button v-on:click="changeContent(todo.id)">edit</button>
+            </div>
+          </td>
           <td class="task-state">
-            <button>{{ todo.state }}</button>
+            <button v-on:click="changeState(todo.id)">{{ todo.state?"OK":"NO" }}</button>
           </td>
           <td class="task-del">
-            <button>削除</button>
+            <button v-on:click="removeTask(todo.id)">削除</button>
           </td>
         </tr>
       </tbody>
@@ -31,14 +40,43 @@ export default {
   data: function() {
     return {
       todos: [{
-        id: 1,
+        id: 0,
         content: "hoge",
-        state: "OK"
-      }]
+        state: false
+      }],
+      content: ""
     }
   },
   methods: {
-
+    addTask: function(event){
+      if (!this.content.length){
+        return
+      }
+      const lastTodo = this.todos.slice(-1)[0] || {id: -1}
+      this.todos.push({
+        id: lastTodo.id + 1,
+        content: this.content,
+        state: false
+      })
+      this.content = "";
+    },
+    removeTask: function(id){
+      this.todos = this.todos.filter((todo) => todo.id !== id)
+    },
+    changeContent: function(id){
+      console.log(id);
+    },
+    changeState: function(id){
+      this.todos = this.todos.map((todo) => {
+        let newTodo = {}
+        if (todo.id === id){
+          newTodo = {...todo, state: !todo.state}
+        }else{
+          newTodo = todo
+        }
+        return newTodo
+      })
+    }
   }
 }
 </script>
@@ -61,6 +99,41 @@ export default {
           padding-right: 32px;
         }
       }
+    }
+    tbody{
+      tr{
+        line-height: 1.5;
+        border-bottom: 1px solid lighten(black, 50%);
+      }
+    }
+    .task-content{
+      display: flex;
+      justify-content: space-between;
+      button{
+        margin-right: 16px;
+      }
+    }
+  }
+  .add-form{
+    width: 100%;
+    max-width: 540px;
+    padding: 16px;
+    margin-bottom: 32px;
+    background-color: $main-color;
+    input{
+      width: calc(100% - 4rem - 16px);
+      padding: 0 1rem;
+      line-height: 2;
+      border: 1px solid black;
+      border-radius: 4px;
+    }
+    button{
+      margin-left: 16px;
+    }
+  }
+  button{
+    &:hover{
+      color: $accent-color1;
     }
   }
 </style>

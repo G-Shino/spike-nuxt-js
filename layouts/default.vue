@@ -4,12 +4,12 @@
 
 <script>
 export default {
-  data(){
+  data: function(){
     return {
       title: "hoge"
     }
   },
-  head(){
+  head: function(){
     return {
       title: this.title,
     }

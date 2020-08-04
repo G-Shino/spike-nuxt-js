@@ -1,16 +1,23 @@
 <template>
   <div class="wrapper">
     <h1>NuxtJS</h1>
-    <ul>
+    <ul v-for="page in pages" v-bind:key="page">
       <li>
-        <nuxt-link to="/">home</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="task-list">task-list</nuxt-link>
+        <nuxt-link v-bind:to="page">{{page.split("-").join(" ")}}</nuxt-link>
       </li>
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+  data: function(){
+    return {
+      pages: ["sample-task-list", "sample-modal"] 
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
   @import "../assets/sass/variables.scss";

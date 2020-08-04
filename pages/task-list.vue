@@ -18,10 +18,7 @@
         <tr v-for="todo in todos" v-bind:key="todo.id">
           <th>{{ todo.id }}</th>
           <td>
-            <div class="task-content">
-              {{ todo.content }}
-              <button v-on:click="changeContent(todo.id)">edit</button>
-            </div>
+            {{ todo.content }}
           </td>
           <td class="task-state">
             <button v-on:click="changeState(todo.id)">{{ todo.state?"OK":"NO" }}</button>
@@ -92,28 +89,18 @@ export default {
   }
   .task-list-area{
     width: 100%;
+    table-layout: fixed;
     thead{
       border-bottom: 2px solid black;
-      tr{
-        th{
-          padding-right: 32px;
-        }
-      }
     }
     tbody{
       tr{
         line-height: 1.5;
         border-bottom: 1px solid lighten(black, 50%);
-      }
-      button{
-        vertical-align: top;
-      }
-    }
-    .task-content{
-      display: flex;
-      justify-content: space-between;
-      button{
-        margin-right: 16px;
+        td{
+          padding-right: 16px;
+          overflow-wrap: break-word;
+        }
       }
     }
   }

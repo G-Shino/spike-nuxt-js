@@ -1,12 +1,6 @@
 <template>
   <div class="wrapper">
-    <h1>Hello world!</h1>
-    <p>
-      english font sample
-    </p>
-    <p>
-      日本語フォント参考 彼らの生命体
-    </P>
+    <h1>NuxtJS</h1>
     <ul>
       <li>
         <nuxt-link to="/">home</nuxt-link>
@@ -22,7 +16,7 @@
   @import "../assets/sass/variables.scss";
   .wrapper {
     width: 90%;
-    margin: 16px auto 0;
+    margin: 32px auto 0;
   }
   ul {
     margin: 8px auto;
@@ -34,7 +28,7 @@
       line-height: 2;
       border-left: solid 6px $accent-color1;
       border-radius: 0 8px 8px 0;
-      background-color: lighten($accent-color1, 30%); 
+      background-color: lighten($accent-color1, 35%); 
       transition: color 0.2s ease-out;
       &:hover{
         color: $accent-font-color;

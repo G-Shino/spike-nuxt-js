@@ -85,7 +85,7 @@ export default {
   @import "../assets/sass/variables.scss";
   .wrapper {
     width: 90%;
-    margin: 16px auto 0;
+    margin: 32px auto 0;
     h1{
       margin-bottom: 16px;
     }
@@ -122,7 +122,8 @@ export default {
     max-width: 540px;
     padding: 16px;
     margin-bottom: 32px;
-    background-color: $main-color;
+    background-color: lighten($accent-color1, 35%);
+    border-radius: 8px;
     input{
       width: calc(100% - 4rem - 16px);
       padding: 0 1rem;

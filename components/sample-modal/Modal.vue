@@ -55,7 +55,7 @@
 
 .modal-enter-active, .modal-leave-active{
   transition: opacity 0.4s;
-  .modal-windo{
+  .modal-window{
     transition: opacity 0.4s, transform 0.4s;
   }
 }
